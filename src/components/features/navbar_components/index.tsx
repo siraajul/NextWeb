@@ -14,13 +14,13 @@ const NavBarComponents = () => {
           <Image src="/logo/logo.png" width={60} height={50} alt="Logo" />
         </div>
         <div className=" flex justify-center items-center gap-5 ">
-          <p className="hover:text-blue-500 cursor-pointer">Home</p>
-          <p className="hover:text-blue-500 cursor-pointer">About</p>
-          <p className="hover:text-blue-500 cursor-pointer">Contact</p>
-          <p className="hover:text-blue-500 cursor-pointer">Team</p>
+          <Link href="/" className="hover:text-blue-500 cursor-pointer text-black">Home</Link>
+          <p className="hover:text-blue-500 cursor-pointer text-black">About</p>
+          <p className="hover:text-blue-500 cursor-pointer text-black">Contact</p>
+          <Link href="/products" className={` ${pathname === "/products" ? "text-green-600" : " text-black "} hover:text-blue-500 cursor-pointer text-black`}>Products</Link>
         </div>
         <div className=" flex justify-center items-center gap-5">
-          {pathname === "/signup" && (
+          {pathname !== "/login" && (
             <Link
               href="/login"
               className=" bg-green-600 py-2 px-3 border border-green-500 rounded-lg text-white hover:bg-green-800"
@@ -28,7 +28,7 @@ const NavBarComponents = () => {
               Login
             </Link>
           )}
-          {pathname === "/login" && (
+          {pathname !== "/signup" && (
             <Link
               href="/signup"
               className=" bg-blue-600 py-2 px-3 border border-blue-500 rounded-lg text-white hover:bg-blue-800"
